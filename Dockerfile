@@ -1,6 +1,7 @@
-FROM jenkins/jnlp-slave
+FROM jenkins/jnlp-slave:alpine
 LABEL authors="UNiDAYS Tech"
 USER root
-RUN apt-get update
-RUN apt-get install -y python-pip
+RUN apk add --no-cache \
+    python \
+    py-pip
 RUN pip install awscli
